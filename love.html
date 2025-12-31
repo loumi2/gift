@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>🎁 New Year Gift</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #2b1247;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      overflow: hidden;
+    }
+
+    .container {
+      width: 90vw;
+      max-width: 360px;
+      height: 520px;
+      position: relative;
+    }
+
+    .card {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 26px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 22px;
+      font-weight: bold;
+      cursor: grab;
+      user-select: none;
+      touch-action: none;
+      animation: fadeScale 0.5s ease;
+    }
+
+    .card:not(.memory):not(.final-message) {
+      background: linear-gradient(135deg, #ff7ac8, #ffd36e);
+      color: #4b145f;
+    }
+
+    .gift {
+      background: linear-gradient(135deg, #7afcff, #b388ff) !important;
+      font-size: 26px;
+    }
+
+    .memory {
+      background: #ffffff;
+      flex-direction: column;
+      padding: 14px;
+      box-sizing: border-box;
+      font-size: 18px;
+      cursor: grab;
+    }
+
+    .memory img {
+      width: 100%;
+      height: 70%;
+      object-fit: cover;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+
+    .final-message {
+      background: linear-gradient(135deg, #ffb6f9, #fff1a8);
+      cursor: pointer;
+      perspective: 1200px;
+      padding: 0;
+    }
+
+    #envelope {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #ff9ad5, #ffc3a0);
+      border-radius: 26px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    #lock {
+      font-size: 42px;
+      animation: pulse 1.5s infinite;
+    }
+
+    #letter {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #fff1f8, #fff9d6);
+      border-radius: 26px;
+      padding: 24px;
+      box-sizing: border-box;
+      transform: rotateX(-90deg);
+      transform-origin: top;
+      transition: transform 0.9s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 20px;
+      line-height: 1.6;
+      flex-direction: column;
+    }
+
+    .open #letter {
+      transform: rotateX(0deg);
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes fadeScale {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .petal {
+      position: fixed;
+      width: 12px;
+      height: 12px;
+      background: pink;
+      border-radius: 50%;
+      animation: fall 3s linear forwards;
+      pointer-events: none;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .firework {
+      position: fixed;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: explode 1s linear forwards;
+    }
+
+    @keyframes explode {
+      to {
+        transform: translateY(-300px) rotate(720deg);
+        opacity: 0;
+      }
+    }
+
+    .final-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 36px;
+      font-weight: bold;
+      color: #fff;
+      text-align: center;
+      display: none;
+      text-shadow: 0 0 20px #ff69b4, 0 0 40px #ff1493, 0 0 60px #ff69b4;
+    }
+  </style>
+</head>
+<body>
+
+<audio id="music" src="C:\Users\AYOO INFORMATIQUE\Desktop\New folder\love.mp3"></audio>
+<audio id="paper" src="paper.mp3"></audio>
+
+<div class="container">
+  <div class="card"> 👥Friends </div>
+  <div class="card"> 👨‍👩‍👧‍👦 Family </div>
+  <div class="card"> 🎒 Study </div>
+  <div class="card">💼 Work pressure</div>
+  <div class="card">😣 Stress & anxiety</div>
+
+  <div class="card gift">🎁 Drag to open the gift</div>
+
+  <!-- Memories -->
+  <div class="card memory">
+    <img src="C:\Users\AYOO INFORMATIQUE\Desktop\New folder\1.jpeg" />
+    <div>💜 A sweet memory</div>
+  </div>
+
+  <div class="card memory">
+    <img src="C:\Users\AYOO INFORMATIQUE\Desktop\New folder\2.jpeg" />
+    <div>A moment full of love 💕</div>
+  </div>
+  <div class="card memory">
+    <img src="C:\Users\AYOO INFORMATIQUE\Desktop\New folder\3.jpeg" />
+    <div>A memory close to my heart 💖</div>
+  </div>
+  <div class="card memory">
+    <img src="C:\Users\AYOO INFORMATIQUE\Desktop\New folder\4.jpeg" />
+    <div>A piece of my happiness 🌷</div>
+  </div>
+
+  <div class="card memory">
+    <img src="C:\Users\AYOO INFORMATIQUE\Desktop\New folder\5.jpeg" />
+    <div>A moment I’ll never forget ✨</div>
+  </div>
+
+  <div class="card memory">
+    <img src="C:\Users\AYOO INFORMATIQUE\Desktop\New folder\7.jpeg" />
+    <div>✨ Another beautiful moment</div>
+  </div>
+  <div class="card memory">
+    <img src="C:\Users\AYOO INFORMATIQUE\Desktop\New folder\8.jpeg" />
+    <div>Always in my heart 🌸</div>
+  </div>
+
+  <div class="card memory">
+    <img src="C:\Users\AYOO INFORMATIQUE\Desktop\New folder\9.jpeg" />
+    <div>So special ✨</div>
+  </div>
+  <div class="card memory">
+    <img src="C:\Users\AYOO INFORMATIQUE\Desktop\New folder\6.jpeg" />
+    <div>A moment that means everything 🌙</div>
+  </div>
+
+  <!-- Final folded message -->
+  <div class="card final-message" id="finalCard">
+    <div id="envelope">
+      <div id="lock">💗</div>
+      <div>Tap the heart to unlock</div>
+    </div>
+    <div id="letter">
+      <span id="typed">To Hayam 💖 </span> <br><br>
+      <em>With all my love, Ahlam 💋 </em>
+    </div>
+  </div>
+</div>
+
+<script>
+  const cards = document.querySelectorAll('.card');
+  const music = document.getElementById('music');
+  const paper = document.getElementById('paper');
+  let index = 0;
+
+  cards.forEach((card, i) => {
+    card.style.zIndex = cards.length - i;
+
+    let startX = 0;
+    let currentX = 0;
+    let dragging = false;
+
+    card.addEventListener('pointerdown', e => {
+      if (i !== index) return;
+      dragging = true;
+      startX = e.clientX;
+      card.setPointerCapture(e.pointerId);
+    });
+
+    card.addEventListener('pointermove', e => {
+      if (!dragging) return;
+      currentX = e.clientX - startX;
+      card.style.transform = `translateX(${currentX}px) rotate(${currentX/15}deg)`;
+    });
+
+    card.addEventListener('pointerup', () => {
+      if (!dragging) return;
+      dragging = false;
+
+      if (Math.abs(currentX) > 120) {
+        card.remove();
+        index++;
+
+        if (card.classList.contains('gift')) {
+          music.play();
+          launchPetals();
+        }
+      } else {
+        card.style.transform = 'translateX(0)';
+      }
+    });
+  });
+
+  function launchPetals() {
+    for (let i = 0; i < 40; i++) {
+      const p = document.createElement('div');
+      p.className = 'petal';
+      p.style.left = Math.random() * window.innerWidth + 'px';
+      p.style.top = '-10px';
+      document.body.appendChild(p);
+      setTimeout(() => p.remove(), 3000);
+    }
+  }
+
+ function launchFireworks() {
+  const colors = ['#ff0040','#ff8000','#ffff00','#00ff40','#00ffff','#4000ff','#ff00ff'];
+  for (let i = 0; i < 20; i++) {
+    const firework = document.createElement('div');
+    firework.className = 'firework';
+    firework.style.left = Math.random() * window.innerWidth + 'px';
+    firework.style.top = window.innerHeight + 'px';
+    firework.style.width = '6px';
+    firework.style.height = '6px';
+    firework.style.background = colors[Math.floor(Math.random()*colors.length)];
+    firework.style.borderRadius = '50%';
+    firework.style.opacity = 1;
+
+    document.body.appendChild(firework);
+
+    // انطلق للأعلى مع انتشار شعاعي
+    let angle = Math.random() * 2 * Math.PI;
+    let distance = 150 + Math.random() * 100;
+    let steps = 30;
+    let step = 0;
+
+    const interval = setInterval(() => {
+      const x = distance * Math.cos(angle) * (step/steps);
+      const y = -distance * Math.sin(angle) * (step/steps) - step*5;
+      firework.style.transform = `translate(${x}px, ${y}px)`;
+      firework.style.opacity = 1 - step/steps;
+      step++;
+      if (step > steps) {
+        clearInterval(interval);
+        firework.remove();
+      }
+    }, 20);
+  }
+}
+
+
+  // Typing effect and final message
+  const finalCard = document.getElementById('finalCard');
+  const target = document.getElementById('typed');
+  const text = `\n Happy New Year 🎉 \n You are one of the most beautiful parts of my life ✨\n Every moment with you becomes a sweet memory 💫
+May this year bring you: 
+Peace 🌸
+Love 💕
+And endless happiness 🌟
+I’m always wishing you the best 🤍\n`;
+  let i = 0;
+  const speed = 50;
+
+  function typeWriter() {
+    if (i < text.length) {
+      target.innerHTML += text[i] === '\n' ? '<br>' : text[i];
+      i++;
+      setTimeout(typeWriter, speed);
+    } else {
+       setTimeout(() => {
+      document.querySelector('.container').style.display = 'none';
+      const finalText = document.createElement('div');
+      finalText.className = 'final-text';
+      finalText.innerHTML = `HAPPY NEW YEAR 🎉<br>Wishing you a year full of love and happiness 💖`;
+      document.body.appendChild(finalText);
+      finalText.style.display = 'block';
+      const fireworksInterval = setInterval(launchFireworks, 500);
+      music.play();
+      setTimeout(() => clearInterval(fireworksInterval), 10000);
+    } , 10000); 
+  }
+}
+  finalCard.addEventListener('click', () => {
+    finalCard.classList.add('open');
+    paper.play();
+    launchPetals();
+    if (i === 0) typeWriter();
+  });
+</script>
+
+</body>
+</html>
